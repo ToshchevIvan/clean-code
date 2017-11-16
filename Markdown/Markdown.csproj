@@ -46,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Languages\MdLanguage.cs" />
@@ -54,11 +55,11 @@
     <Compile Include="Renderers\HTMLTokenRenderer.cs" />
     <Compile Include="Renderers\ITokenRenderer.cs" />
     <Compile Include="TokenReader.cs" />
+    <Compile Include="Tokens\CompoundToken.cs" />
     <Compile Include="Tokens\EmphasizedTextToken.cs" />
     <Compile Include="Tokens\IToken.cs" />
-    <Compile Include="Tokens\PlanTextToken.cs" />
+    <Compile Include="Tokens\PlainTextToken.cs" />
     <Compile Include="Tokens\StrongTextToken.cs" />
-    <Compile Include="Tokens\Token.cs" />
     <Compile Include="Tokens\TryRead.cs" />
   </ItemGroup>
   <ItemGroup>

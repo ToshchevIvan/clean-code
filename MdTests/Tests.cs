@@ -28,7 +28,7 @@ namespace MdTests
 
         [TestCase("_text_", ExpectedResult = "<em>text</em>")]
         [TestCase("_text _", ExpectedResult = "_text _")]
-        [TestCase("_ text_", ExpectedResult = "_ text")]
+        [TestCase("_ text_", ExpectedResult = "_ text_")]
         [TestCase("_simple_ text", ExpectedResult = "<em>simple</em> text")]
         [TestCase("some _simple_ text", ExpectedResult = "some <em>simple</em> text")]
         public static string RenderEmphasizedText(string text)
