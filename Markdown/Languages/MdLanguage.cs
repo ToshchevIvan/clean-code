@@ -1,15 +1,16 @@
-﻿using Markdown.Tokens;
+﻿using System.Collections.Generic;
+using Markdown.Tokens;
 
 
 namespace Markdown.Languages
 {
-    internal static class MdLanguage
+    internal class MdLanguage : ILanguage
     {
-        public const char Delimiter = '_';
+        public IEnumerable<TryRead> TokenReaders => tokenReaders;
 
-        public static readonly TryRead[] Readers =
+        private static readonly TryRead[] tokenReaders =
         {
-//            StrongTextToken.TryRead,
+            StrongTextToken.TryRead,
             EmphasizedTextToken.TryRead,
             PlainTextToken.TryRead
         };

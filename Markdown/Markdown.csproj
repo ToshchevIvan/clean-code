@@ -49,6 +49,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Languages\ILanguage.cs" />
     <Compile Include="Languages\MdLanguage.cs" />
     <Compile Include="Md.cs" />
     <Compile Include="Program.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Tokens\IToken.cs" />
     <Compile Include="Tokens\PlainTextToken.cs" />
     <Compile Include="Tokens\StrongTextToken.cs" />
+    <Compile Include="Tokens\FsmReader.cs" />
     <Compile Include="Tokens\TryRead.cs" />
   </ItemGroup>
   <ItemGroup>

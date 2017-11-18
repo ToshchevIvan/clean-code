@@ -12,23 +12,7 @@ namespace Markdown
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            var t = new StrongTextToken(new List<IToken>
-            {
-                new PlainTextToken("abcde "),
-                new EmphasizedTextToken("fg"),
-                new PlainTextToken(" hklm"),
-                new StrongTextToken(new List<IToken>(
-                        new List<IToken>
-                        {
-                            new PlainTextToken(" oprst "),
-                            new EmphasizedTextToken("xyz")
-                        }
-                    ))
-            });
-
-            Console.WriteLine(new HTMLTokenRenderer().Render(t));
-        }
+        public static void Main()
+        {}
     }
 }
