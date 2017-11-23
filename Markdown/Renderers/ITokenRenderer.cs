@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using Markdown.Tokens;
 
 
 namespace Markdown.Renderers
 {
     public interface ITokenRenderer
     {
-        string Emphasized(params string[] text);
-        string Strong(params string[] text);
+        IDisposable Emphasazied();
+        IDisposable Strong();
+        void PushText(string text);
+        string Render(IToken token);
     }
 }

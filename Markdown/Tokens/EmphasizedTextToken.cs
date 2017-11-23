@@ -60,8 +60,11 @@ namespace Markdown.Tokens
         {
         }
 
-        public override string Render(ITokenRenderer renderer) =>
-            renderer.Emphasized(Content);
+        public override void Render(ITokenRenderer renderer)
+        {
+            using (renderer.Emphasazied())
+                renderer.PushText(Content);
+        }
 
         public static bool TryRead(TokenReader reader, out IToken token)
         {

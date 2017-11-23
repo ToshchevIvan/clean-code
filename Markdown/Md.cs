@@ -14,9 +14,9 @@ namespace Markdown
                 throw new ArgumentNullException(nameof(markdown));
             var reader = new TokenReader(new MdLanguage(), markdown);
             var token = new CompoundToken(reader.ReadTokens());
-            var renderer = new HTMLTokenRenderer();
+            var renderer = new HtmlTokenRenderer();
 
-            return token.Render(renderer);
+            return renderer.Render(token);
         }
     }
 }

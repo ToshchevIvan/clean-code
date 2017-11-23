@@ -5,6 +5,6 @@ namespace Markdown.Tokens
 {
     public interface IToken
     {
-        string Render(ITokenRenderer renderer);
+        void Render(ITokenRenderer renderer);
     }
 }

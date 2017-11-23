@@ -68,10 +68,10 @@ namespace Markdown.Tokens
         {
         }
 
-        public override string Render(ITokenRenderer renderer)
+        public override void Render(ITokenRenderer renderer)
         {
-            var inner = RenderInnerTokens(renderer);
-            return renderer.Strong(inner);
+            using (renderer.Strong())
+                base.Render(renderer);
         }
 
         public static bool TryRead(TokenReader reader, out IToken token)

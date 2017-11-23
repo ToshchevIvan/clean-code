@@ -15,15 +15,10 @@ namespace Markdown.Tokens
             InnerTokens = tokens;
         }
 
-        protected string[] RenderInnerTokens(ITokenRenderer renderer)
+        public virtual void Render(ITokenRenderer renderer)
         {
-            return InnerTokens.Select(t => t.Render(renderer))
-                .ToArray();
-        }
-
-        public virtual string Render(ITokenRenderer renderer)
-        {
-            return string.Join("", RenderInnerTokens(renderer));
+            foreach (var innerToken in InnerTokens)
+                innerToken.Render(renderer);
         }
     }
 }
