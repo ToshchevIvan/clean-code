@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Markdown.Renderers;
 
@@ -14,13 +15,15 @@ namespace Markdown.Tokens
             InnerTokens = tokens;
         }
 
+        protected string[] RenderInnerTokens(ITokenRenderer renderer)
+        {
+            return InnerTokens.Select(t => t.Render(renderer))
+                .ToArray();
+        }
+
         public virtual string Render(ITokenRenderer renderer)
         {
-            var builder = new StringBuilder(InnerTokens.Count);
-            foreach (var innerToken in InnerTokens)
-                builder.Append(innerToken.Render(renderer));
-
-            return builder.ToString();
+            return string.Join("", RenderInnerTokens(renderer));
         }
     }
 }

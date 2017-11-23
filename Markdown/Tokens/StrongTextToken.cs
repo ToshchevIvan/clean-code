@@ -70,8 +70,8 @@ namespace Markdown.Tokens
 
         public override string Render(ITokenRenderer renderer)
         {
-            var content = base.Render(renderer);
-            return renderer.Strong(content);
+            var inner = RenderInnerTokens(renderer);
+            return renderer.Strong(inner);
         }
 
         public static bool TryRead(TokenReader reader, out IToken token)

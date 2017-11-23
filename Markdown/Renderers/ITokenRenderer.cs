@@ -1,8 +1,11 @@
-﻿namespace Markdown.Renderers
+﻿using System.Collections.Generic;
+
+
+namespace Markdown.Renderers
 {
     public interface ITokenRenderer
     {
-        string Emphasized(string text);
-        string Strong(string text);
+        string Emphasized(params string[] text);
+        string Strong(params string[] text);
     }
 }
