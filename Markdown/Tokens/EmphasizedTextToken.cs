@@ -61,7 +61,7 @@ namespace Markdown.Tokens
         }
 
         public override string Render(ITokenRenderer renderer) =>
-            renderer.Render(this);
+            renderer.Emphasized(Content);
 
         public static bool TryRead(TokenReader reader, out IToken token)
         {

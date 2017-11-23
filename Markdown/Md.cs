@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Markdown.Languages;
 using Markdown.Renderers;
 using Markdown.Tokens;
@@ -13,11 +12,11 @@ namespace Markdown
         {
             if (markdown == null)
                 throw new ArgumentNullException(nameof(markdown));
-            var renderer = new HTMLTokenRenderer();
             var reader = new TokenReader(new MdLanguage(), markdown);
             var token = new CompoundToken(reader.ReadTokens());
-            
-            return renderer.Render(token);
+            var renderer = new HTMLTokenRenderer();
+
+            return token.Render(renderer);
         }
     }
 }

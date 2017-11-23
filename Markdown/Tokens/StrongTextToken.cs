@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Markdown.Languages;
+﻿using System.Collections.Generic;
 using Markdown.Renderers;
 
 
@@ -70,8 +68,11 @@ namespace Markdown.Tokens
         {
         }
 
-        public override string Render(ITokenRenderer renderer) =>
-            renderer.Render(this);
+        public override string Render(ITokenRenderer renderer)
+        {
+            var content = base.Render(renderer);
+            return renderer.Strong(content);
+        }
 
         public static bool TryRead(TokenReader reader, out IToken token)
         {

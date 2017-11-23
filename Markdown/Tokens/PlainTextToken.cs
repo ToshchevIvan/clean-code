@@ -53,8 +53,7 @@ namespace Markdown.Tokens
             Content = content;
         }
 
-        public virtual string Render(ITokenRenderer renderer) =>
-            renderer.Render(this);
+        public virtual string Render(ITokenRenderer renderer) => Content;
 
         public static bool TryRead(TokenReader reader, out IToken token)
         {

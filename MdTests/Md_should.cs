@@ -66,6 +66,7 @@ namespace MdTests
         [TestCase("_\\_text__", ExpectedResult = "<em>_text</em>_")]
         [TestCase("\\__text__", ExpectedResult = "_<em>text</em>_")]
         [TestCase("_text\\\\_", ExpectedResult = "<em>text\\</em>")]
+        [TestCase("__a___b_", ExpectedResult = "<strong>a</strong><em>b</em>")]
         public static string RenderToughCases(string text)
         {
             return md.RenderToHtml(text);
