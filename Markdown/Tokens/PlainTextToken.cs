@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Markdown.Languages;
 using Markdown.Renderers;
 
 

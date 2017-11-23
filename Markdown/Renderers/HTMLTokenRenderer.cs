@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Markdown.Tokens;
 
 
@@ -14,18 +16,18 @@ namespace Markdown.Renderers
         public HtmlTokenRenderer()
         {
             builder = new StringBuilder();
-            emphasizedTag = new HTMLPairedTag("em", this);
-            strongTag = new HTMLPairedTag("strong", this);
+            emphasizedTag = new PairedTag("em", this);
+            strongTag = new PairedTag("strong", this);
         }
 
-        public ITag Emphasized() =>
+        public IDisposable Emphasized() => 
             WithTag(emphasizedTag);
 
-        public ITag Strong() =>
+        public IDisposable Strong() => 
             WithTag(strongTag);
 
         public void PushText(string text) => builder.Append(text);
-
+        
         public string Render(IToken token)
         {
             builder = new StringBuilder();
@@ -33,10 +35,28 @@ namespace Markdown.Renderers
             return builder.ToString();
         }
 
-        public ITag WithTag(ITag tag)
+        private IDisposable WithTag(PairedTag tag)
         {
             builder.Append(tag.OpeningTag);
             return tag;
+        }
+        
+        private class PairedTag : IDisposable
+        {
+            internal readonly string OpeningTag;
+            internal readonly string ClosingTag;
+            
+            private readonly ITokenRenderer renderer;
+
+            internal PairedTag(string tagName, ITokenRenderer renderer)
+            {
+                this.renderer = renderer;
+                OpeningTag = $"<{tagName}>";
+                ClosingTag = $"</{tagName}>";
+            }
+            
+            public void Dispose() =>
+                renderer.PushText(ClosingTag);
         }
     }
 }
