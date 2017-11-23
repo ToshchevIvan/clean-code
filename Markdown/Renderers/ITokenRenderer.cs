@@ -1,13 +1,13 @@
-﻿using System;
-using Markdown.Tokens;
+﻿using Markdown.Tokens;
 
 
 namespace Markdown.Renderers
 {
     public interface ITokenRenderer
     {
-        IDisposable Emphasized();
-        IDisposable Strong();
+        ITag Emphasized();
+        ITag Strong();
+        ITag WithTag(ITag tag);
         void PushText(string text);
         string Render(IToken token);
     }

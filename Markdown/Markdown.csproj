@@ -53,8 +53,11 @@
     <Compile Include="Languages\MdLanguage.cs" />
     <Compile Include="Md.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Renderers\HTMLPairedTag.cs" />
     <Compile Include="Renderers\HTMLTokenRenderer.cs" />
+    <Compile Include="Renderers\ITag.cs" />
     <Compile Include="Renderers\ITokenRenderer.cs" />
+    <Compile Include="Renderers\PairedTag.cs" />
     <Compile Include="TokenReader.cs" />
     <Compile Include="Tokens\CompoundToken.cs" />
     <Compile Include="Tokens\EmphasizedTextToken.cs" />
