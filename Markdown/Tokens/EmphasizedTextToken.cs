@@ -62,7 +62,7 @@ namespace Markdown.Tokens
 
         public override void Render(ITokenRenderer renderer)
         {
-            using (renderer.Emphasazied())
+            using (renderer.Emphasized())
                 renderer.PushText(Content);
         }
 

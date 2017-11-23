@@ -20,7 +20,7 @@ namespace Markdown.Renderers
             strongTag = new PairedTag("strong", this);
         }
 
-        public IDisposable Emphasazied() => 
+        public IDisposable Emphasized() => 
             WithTag(emphasizedTag);
 
         public IDisposable Strong() => 

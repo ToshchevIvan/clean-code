@@ -6,7 +6,7 @@ namespace Markdown.Renderers
 {
     public interface ITokenRenderer
     {
-        IDisposable Emphasazied();
+        IDisposable Emphasized();
         IDisposable Strong();
         void PushText(string text);
         string Render(IToken token);
